@@ -1,8 +1,16 @@
 package org.phdark;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.Proxy.Type;
+import java.net.SocketAddress;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
@@ -13,6 +21,9 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 /**
  * 
@@ -73,5 +84,17 @@ public class HttpClientUtils
 			throw new IllegalArgumentException("HttpResponse is null");
 		}
 		return resp.getStatusLine().getStatusCode();
+	}
+	
+	public static void main(String[] args) {
+		try
+		{
+			File f =  new File("/Users/phoenixdark/Work/");
+			f.mkdirs();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }
